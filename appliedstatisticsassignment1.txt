@@ -1,0 +1,64 @@
+1.1.2
+getwd()  ## getting the present working directory
+install.packages("alr4") #installling all the required packages
+library(alr4)
+a <- UN11 #assigning the data package
+
+install.packages("ggplot2") #instaling ggplot2 package for 
+library(ggplot2)
+
+ggplot(data=a, aes(x=fertility,y=ppgdp))+geom_point(pch=16,col=3)+ggtitle("scatter plot")
+
+##1.1.3
+install.packages("alr4")
+library(alr4)
+
+install.packages("ggplot2")
+library(ggplot2)
+
+b <- UN11
+b
+
+p2 <- ggplot(b, aes(x=log(ppgdp), y=log(fertility))) +geom_point() +labs(title= "Natural Log of Fertility Compared to Natural Log of Gross National Product in US Dollars",
+x= "GNP (per person in US Dollars)",y = "Fertility (per 1000 females)") +theme_minimal()
+
+p2
+
+
+####
+
+data<-read.csv("htwt.csv",header = T, sep=",")
+
+#2.1.1
+#scatter plot
+height=data$ht
+weight=data$wt
+par(cex=.8)
+plot(height, weight, main="Height-Weight Scatterplot",
+     xlab="Height", ylab="Weight", pch=19)
+
+#2.1.2
+library(alr4)
+data(Htwt)
+head(Htwt)
+input <- Htwt[,c('ht','wt')]
+x = input$ht
+y = input$wt
+mean (x)
+
+
+sxx <- sum((x - mean(x))^2)
+sxx
+syy <- sum((x - mean(x))^2)
+syy
+sxy <- sum((x-mean(x)) * (y - mean(y)))
+sxy
+bta_1 <- sxy/sxx
+bta_1
+bta_0 <- mean(y) - bta_1*mean(x)
+bta_0
+plot(x = input$ht, y = input$wt)
+abline(lm(y~x, data = Htwt),col = "green",lwd=3)
+
+
+
